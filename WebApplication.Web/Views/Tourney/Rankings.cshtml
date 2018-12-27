@@ -1,0 +1,45 @@
+﻿@model Tournament;
+@{
+    ViewData["Title"] = "Rankings";
+}
+
+<style>
+    h2 {
+        font-size : xx-large;
+        font-weight : bold;
+    }
+    .bordered{ 
+        border-right : 2px solid black;
+        
+    }
+    .centered{
+        text-align:center;
+    }
+</style>
+
+<h2>Rankings</h2>
+<div class="container">
+    <div class="row">
+        <h3 class="col-md-4">Player</h3>
+        <h3 class="col-md-1 bordered centered">W</h3>
+        <h3 class="col-md-1 bordered centered">L</h3>
+        <h3 class="col-md-1 centered">D</h3>
+    </div>
+</div>
+<ul>
+    @{ if (Model != null && Model.Players.Count() > 0)
+        {
+            foreach (User user in Model.Players)
+            {
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">@user.Username</div>
+                        <div class="col-md-4 bordered centered">@user.Wins</div>
+                        <div class="col-md-4 bordered centered">@user.Losses</div>
+                        <div class="col-md-4 centered">@user.Draws</div>
+                    </div>
+                </div>
+            }
+        }
+    }
+</ul>

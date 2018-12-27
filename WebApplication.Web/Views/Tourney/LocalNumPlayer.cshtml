@@ -1,0 +1,100 @@
+﻿<script src="~/js/site.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/jquery.bracket.min.js"></script>
+<link rel="stylesheet" href="~/css/jquery.bracket.min.css" />
+@model int
+@{
+    ViewData["Title"] = "LocalNumPlayer";
+}
+
+<h2>How many players?</h2>
+
+<form class="TourneyBrowseButton" asp-controller="Tourney" asp-action="LocalNumPlayer" method="get">
+    <input type="text" name="players" />
+    <div>
+        <button type="submit" class="btn btn-info">Add Players</button>
+    </div>
+</form>
+<br />
+<br />
+<div class="tournament"></div>
+
+<script>
+    function GenerateTree() {
+        let masterArray = [];
+        for (let i = 0; i < GetNeededSlots(@Model/2);i++){
+            masterArray.push([null, null]);
+        }
+    return masterArray;
+    }
+
+
+
+    function CreateTeamsBalanced(str) {
+        if (str != null) {
+            let strArray = String(str).split(' ');
+
+            let neededSlots = 2;
+            while (true) {
+                if (strArray.length > neededSlots) {
+                    neededSlots *= 2;
+                }
+                else {
+                    break;
+                }
+            }
+
+            let masterArray = [];
+            let currStrI = 0;
+            for (let i = 0; i < neededSlots / 2; i++) {
+                if (strArray.length > currStrI) masterArray.push([strArray[currStrI], null]);
+                else masterArray.push([null, null]);
+                currStrI++;
+            }
+            for (let i = 0; i < neededSlots / 2; i++) {
+                if (strArray.length > currStrI) masterArray[i][1] = strArray[currStrI];
+                currStrI++;
+            }
+
+            return masterArray;
+        }
+    }
+    function CreateScoresArray(str) {
+        if (str != null) {
+            let strArray = String(str).split(' ');
+
+            let masterArray = [];
+            let array = [];
+            let first = true;
+            for (let i = 0; i < strArray.length; i++) {
+                if (first) {
+                    array.push(Number(strArray[i]));
+                }
+                else {
+                    array.push(Number(strArray[i]));
+                    masterArray.push(array);
+                    array = [];
+                }
+
+                first = !first
+            }
+
+            return masterArray;
+        }
+    }
+    function savetest() { }
+    let players = GenerateTree();
+    let scores = CreateScoresArray();
+    let minData =
+    {
+        teams: players,
+        results: scores,
+    };
+
+    $(".tournament").bracket(
+        {
+            save: savetest,
+            skipConsolationRound: true,
+            init: minData,
+        });
+</script>

@@ -1,0 +1,25 @@
+﻿.two {
+    
+    text-align: center;
+    font-size: 14px;
+    
+}
+input {
+    border: 1px solid #1c97f3;
+    width: 150px;
+    height: 25px;
+    margin-bottom: 14px;
+}
+.newField > div {
+    border: #333 1px solid;
+    width: 200px;
+    height: 25px;
+}
+table, th, td {
+    
+    padding: 5px;
+}
+
+table {
+    border-spacing: 15px;
+}

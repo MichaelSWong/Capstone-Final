@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "SlotsView_CodeTube";
+}
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<link href="~/css/jquery.bracket.min.css" rel="stylesheet"/>
+<script src="~/js/jquery.bracket.min.js"></script>
+
+<div class="tournament"></div>
+
+<script>
+    let minData =
+    {
+        teams: [
+            ["Player 1", "Player 2"],
+            ["Player 3", "Player 4"],
+            ["Player 5", "Player 6"],
+            ["Player 7", "Player 8"],
+        ],
+        results: [
+            [[0, 0], [0, 0], [0, 0], [0, 0]],
+            [[0, 0], [0, 0]],
+            [[0, 0]],
+        ],
+    };
+
+    $(".tournament").bracket(
+        {
+            init: minData,
+        });
+</script>

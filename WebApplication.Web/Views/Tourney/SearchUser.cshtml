@@ -1,0 +1,67 @@
+﻿@model SearchAddUsers;
+@{
+    ViewData["Title"] = "SearchUser";
+}
+
+<h2>Add Players to Tournament</h2>
+
+<div>
+    <div>
+        <h4>Added Players</h4>
+        <ul class="row">
+            @{
+                if (Model != null && Model.players.Count > 0)
+                {
+                    foreach (User user in Model.players)
+                    {
+            <li>
+                <form style="display:inline-block;" asp-controller="Tourney" asp-action="RemoveAddedPlayer" method="get">
+                    <input type="number" name="id" value="@user.Id" hidden />
+                    <button class="btn btn-info" type="submit">Remove</button>
+                </form>
+                <span class="TourneyBrowseText">@user.Username</span>
+
+            </li>
+                    }
+                }
+                else
+                {
+                    <li>Add players below!</li>
+                }
+            }
+        </ul>
+    </div>
+    <form asp-controller="Tourney" asp-action="SearchUser" method="get" class="TourneyBrowseForm">
+        <input type="text" name="searchStr" />
+        <button type="submit" class="btn btn-info">Search</button>
+        <button asp-controller="Tourney" asp-action="CreateSlots" class="btn btn-info">Next Step</button>
+    </form>
+    @{
+        if (Model != null && Model.userSearch.Object.Count > 0)
+        {
+            <div class="row">
+                <div class="HiddenSM">
+                    <strong class="col-xs-3">Username</strong>
+                    <strong class="col-xs-8">Name</strong>
+                </div>
+                <hr />
+                <div>
+                    @{
+                        foreach (User user in Model.userSearch.Object)
+                        {
+                            if (user != null)
+                            {
+                                <form class="TourneyBrowseItem" asp-controller="Tourney" asp-action="AddUser" method="get">
+                                    <div class="col-xs-3 TourneyBrowseText" style="word-wrap: break-word" for="id">@user.Username</div>
+                                    <div class="col-xs-7">@user.FirstName @user.LastName</div>
+                                    <input type="number" name="id" value="@user.Id" hidden />
+                                    <button type="submit" class="btn btn-info col-xs-2 TourneyBrowseButton">Add User</button>
+                                </form>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        }
+    }
+</div>

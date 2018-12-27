@@ -1,0 +1,38 @@
+﻿<link rel="stylesheet" href="~/css/register.css" />
+@using WebApplication.Web.Models.Account;
+@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>Register</h2>
+
+<form asp-controller="account" asp-action="register" method="post">
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input id="email" asp-for="Email" placeholder="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FirstName"></label>
+        <input id="firstName" asp-for="FirstName" />
+        <span asp-validation-for="FirstName"></span>
+    </div>    
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input id="lastName" asp-for="LastName" />
+        <span asp-validation-for="LastName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input id="password" type="password" asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ConfirmPassword"></label>
+        <input id="confirmpassword" type="password" asp-for="ConfirmPassword" />
+        <span asp-validation-for="ConfirmPassword"></span>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>

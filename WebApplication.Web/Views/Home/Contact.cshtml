@@ -1,0 +1,30 @@
+﻿<link rel="stylesheet" href="~/css/playergenerator.css" />
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<div id="app" class="container">
+    <h2>Create Tournament: {{LocalT.Name}}</h2>
+    <div class="row">
+        <div class="one col-md-2">
+
+            <label>Local Tournament</label>
+            <input type="text" v-model="LocalT.Name" />
+            <h2>PlayerGenerator</h2>
+            <form>
+                Number of players:<input type="text" name="player" value="" v-model="LocalT.PlayerName" placeholder="Player" id="draggable1"><br />
+
+            </form>
+            <button id="btn" onclick="addinputFields()">Button</button>
+
+
+
+            <p id="container1"></p>
+
+        </div>
+        <div class="two col-md-10" id="container2">
+          
+        </div>
+    </div>
+
+</div>

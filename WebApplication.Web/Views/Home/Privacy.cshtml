@@ -1,0 +1,30 @@
+﻿<link rel="stylesheet" href="~/css/playergenerator.css" />
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h2>@ViewData["Title"]</h2>
+
+
+<div id="app" class="container">
+    <h3>Create Tournament: {{LocalT.Name}}</h3>
+    <div class="row">
+        <div class="one col-md-2">
+
+            <label>Local Tournament</label>
+            <input type="text" v-model="LocalT.Name" />
+            <h4>PlayerGenerator</h4>
+            <form>
+                Number of players:<input type="text" name="player" value="" v-model="LocalT.PlayerName" placeholder="Player" id="draggable1"><br />
+            </form>
+            <button id="btn" onclick="addinputFields()">Generate Player</button>
+        </div>
+        <div style="overflow:scroll">
+            <div class="col-md-3" id="container1"></div>
+            <div class="col-md-3" id="container2"></div>
+            <div class="col-md-3" id="container3"></div>
+            <div class="col-md-3" id="container4"></div>
+        </div>
+
+
+    </div>
+</div>

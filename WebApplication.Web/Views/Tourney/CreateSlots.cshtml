@@ -1,0 +1,42 @@
+﻿@model Tournament;
+@{
+    ViewData["Title"] = "CreateSlots";
+}
+<link href="~/js/site.js" />
+
+<button class="btn btn-success" onclick="SendSlots()">Save Tournament</button>
+<button class="btn btn-info" onclick="CreateSlot()">New Slot</button>
+<span id="playerCount" hidden>@Model.PLayerCount</span>
+<div class="SlotsContainer">
+    @{
+        for (int i = 0; i < Model.Players.Count; i++)
+        {
+            <div id="draggable">
+                <div id="slot_@i" class="row Slot">
+                    <span class="col-xs-8 TourneyBrowseText">@Model.Players[i].Username</span>
+                    <span id="playerID" hidden>@Model.Players[i].Id</span>
+                    <button class="btn btn-info col-xs-4" onclick="ConnectSlot(this)">Connect</button>
+                    <span id="nextSlotID" hidden></span>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+<style>
+    .SlotsContainer
+    {
+        margin: 1em;
+        padding: 1em;
+        height: 30em;
+        overflow: scroll;
+        background-color: lightgray;
+    }
+
+    .Slot
+    {
+        border-style: solid;
+        position: absolute;
+        width: 20em;
+    }
+</style>

@@ -1,0 +1,56 @@
+﻿<link rel="stylesheet" href="~/css/localtourney.css" />
+@{
+    ViewData["Title"] = "CreateLocalTourney";
+}
+<div id="app">
+    <h2>CreateLocalTourney: {{LocalT.Name}}</h2>
+    <div class="wrapper">
+        <div class="one">
+            <h2>Game Title</h2>
+            <form>
+                <label>Local Tournament</label>
+                <input type="text" v-model="LocalT.Name" required />
+                <label>Player Name 1</label>
+                <input type="text" v-model="LocalT.PlayerName1" required />
+                <label>Player Name 2</label>
+                <input type="text" v-model="LocalT.PlayerName2" required />
+                <label>Player Name 3</label>
+                <input type="text" v-model="LocalT.PlayerName3" required />
+                <label>Player Name 4</label>
+                <input type="text" v-model="LocalT.PlayerName4" required />
+                <label>Player Name 5</label>
+                <input type="text" v-model="LocalT.PlayerName5" required />
+                <label>Player Name 6</label>
+                <input type="text" v-model="LocalT.PlayerName6" required />
+                <label>Player Name 7</label>
+                <input type="text" v-model="LocalT.PlayerName7" required />
+                <label>Player Name 8</label>
+                <input type="text" v-model="LocalT.PlayerName8" required />
+            </form>
+        </div>
+        <div class="nested1">
+            <div class="draggable">{{LocalT.PlayerName1}}<button type="button" class="btn btn-primary btn-sm">Move</button></div>
+            <div class="draggable">{{LocalT.PlayerName2}}<button type="button" class="btn btn-primary btn-sm">Move</button></div>
+            <div class="draggable">{{LocalT.PlayerName3}}<button type="button" class="btn btn-primary btn-sm">Move</button></div>
+            <div class="draggable">{{LocalT.PlayerName4}}<button type="button" class="btn btn-primary btn-sm">Move</button></div>
+            <div class="draggable">{{LocalT.PlayerName5}}<button type="button" class="btn btn-primary btn-sm">Move</button></div>
+            <div class="draggable">{{LocalT.PlayerName6}}<button type="button" class="btn btn-primary btn-sm">Move</button></div>
+            <div class="draggable">{{LocalT.PlayerName7}}<button type="button" class="btn btn-primary btn-sm">Move</button></div>
+            <div class="draggable">{{LocalT.PlayerName8}}<button type="button" class="btn btn-primary btn-sm">Move</button></div>
+        </div>
+        <div class="nested2">
+            <div><button type="button" class="btn btn-primary btn-sm">Move</button></div>
+            <div><button type="button" class="btn btn-primary btn-sm">Move</button></div>
+            <div><button type="button" class="btn btn-primary btn-sm">Move</button></div>
+            <div><button type="button" class="btn btn-primary btn-sm">Move</button></div>
+        </div>
+        <div class="nested3">
+            <div><button type="button" class="btn btn-primary btn-sm">Move</button></div>
+            <div><button type="button" class="btn btn-primary btn-sm">Move</button></div>
+        </div>
+        <div class="nested4">
+            <div><button type="button" class="btn btn-primary btn-sm">Move</button></div>
+        </div>
+    </div>
+</div>
+

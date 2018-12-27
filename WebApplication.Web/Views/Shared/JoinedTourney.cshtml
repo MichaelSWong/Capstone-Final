@@ -1,0 +1,22 @@
+﻿<link rel="stylesheet" href="~/css/tourneyhome.css" />
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<h2>Joined</h2>
+<form asp-controller="tourney" asp-action="browse" method="post">
+    <div>
+        <textarea rows="4" cols="50">
+            List of joined Tournaments
+            Coming Soon!!
+        </textarea>
+    </div>
+    <textarea rows="4" cols="50" placeholder="Coming Soon!!">
+            List of pending Tournaments
+            Coming Soon!!
+        </textarea>
+    <div>
+        <input type="text" name="SearchStr">
+        <button class="btn btn-info" asp-controller="Tourney" asp-action="Browse">Search</button>
+    </div>  
+</form>

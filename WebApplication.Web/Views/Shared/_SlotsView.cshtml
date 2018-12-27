@@ -1,0 +1,12 @@
+﻿@model List<Slot>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="wrapper">
+    @foreach(Slot bracket in Model)
+    {
+        <div>@bracket.Player</div>
+        <hr />
+        <div>@bracket.TournamentID</div>
+    }
+</div>

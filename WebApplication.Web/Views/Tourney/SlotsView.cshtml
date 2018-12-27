@@ -1,0 +1,65 @@
+﻿@model Tournament;
+@{
+    ViewData["Title"] = "SlotsView";
+}
+
+<div id="tree" class="Tree">
+    @{
+
+        if (Model !=null && Model.Tree != null && Model.Tree.Count > 0)
+        {
+            for (int i = 0; i < Model.Tree.Count; i++)
+            {
+                <div id="treeLevel" class="TreeLevel">
+                    @{
+                        foreach (Slot slot in Model.Tree[i])
+                        {
+                            string heightEach = (100 / Model.Tree[i].Count) + "%";
+
+                            <div id="slot_@slot.ID-@slot.NextSlotID" style="height:@heightEach;" class="TreeParentSlot">
+                                <div class="TreeSlot">
+                                    @{
+                                        if (slot.Player == null || slot.Player.Id < 0)
+                                        {
+                                            <div>Slot @slot.ID</div>
+                                        }
+                                        else
+                                        {
+                                            <div>@slot.Player.Username @slot.ID</div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            }
+        }
+    }
+</div>
+
+<style>
+    .Tree {
+        height: 30em;
+    }
+
+    .TreeLevel {
+        display: inline-block;
+        width: 20%;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: 10em;
+    }
+
+    .TreeParentSlot {
+        display: flex;
+        align-items: center;
+    }
+
+    .TreeSlot {
+        background-color: burlywood;
+        width: 100%;
+        padding: .25em;
+        padding-left: 1em;
+    }
+</style>
